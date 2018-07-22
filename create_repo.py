@@ -46,7 +46,7 @@ def create_repo(user_name, repo_name, repo_dir):
     execute(cmd, repo_dir)
 
 #creating remote branch to push to master
-def create_origin(user_name, repo_name,  repo_dir):
+def create_origin(user_name, repo_name, repo_dir):
     cmd = 'git remote add origin https://github.com/' + user_name + '/' + repo_name + '.git'
     execute(cmd, repo_dir)
 
@@ -59,7 +59,7 @@ git_init('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 git_add('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 git_commit('Testing gitupload via script.', '/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 #create_repo('weiprotein','script_test','/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
-create_origin('weiprotein','/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
+create_origin('weiprotein', 'script_test', '/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 git_push('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 
 
