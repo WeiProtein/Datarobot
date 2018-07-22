@@ -58,8 +58,8 @@ def git_push(repo_dir):
 git_init('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 git_add('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 git_commit('Testing gitupload via script.', '/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
-create_repo('weiprotein','script_test','/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
-create_origin('weiprotein','/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
+#create_repo('weiprotein','script_test','/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
+#create_origin('weiprotein','/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 git_push('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
 
 
