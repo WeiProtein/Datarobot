@@ -46,8 +46,8 @@ def create_repo(user_name, repo_name, repo_dir):
     execute(cmd, repo_dir)
 
 #creating remote branch to push to master
-def create_origin(user_name, repo_dir):
-    cmd = 'git remote add origin https://github.com/' + user_name + '/Datarobot.git'
+def create_origin(user_name, repo_name,  repo_dir):
+    cmd = 'git remote add origin https://github.com/' + user_name + '/' + repo_name + '.git'
     execute(cmd, repo_dir)
 
 #git push
