@@ -43,7 +43,7 @@ def git_commit(msg, repo_dir):
 #create repo in user's github
 def create_repo(user_name, repo_name, repo_dir):
     cmd = 'curl -u ' + user_name + ' https://api.github.com/user/repos -d \'{"name":"' + repo_name + '"}\''
-    excute(cmd, repo_dir)
+    execute(cmd, repo_dir)
 
 #creating remote branch to push to master
 def create_origin(user_name, repo_dir):
