@@ -4,10 +4,23 @@ import os
 import subprocess
 import getpass
 from github import Github
+from flask import Flask, render_template, url_for, flash
+from forms import InfoForm
+app = Flask(__name__)
 
+app.config['SECRET_KEY'] = 'gmvjdusampa99vh5'
+
+
+"""
 #user input for username and password to user's profile
 user_name = raw_input('Please enter Github username: ')
 password = getpass.getpass('Please enter your password: ')
+"""
+
+###CHANGE BACK AFTER COMPLETE###
+user_name = 'weiprotein'
+password = 'd9p8ckva'
+###
 
 g = Github(user_name, password)
 
@@ -55,12 +68,39 @@ def git_push(repo_dir):
     cmd = 'git push -u origin master'
     execute(cmd, repo_dir)
 
-git_init('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
-git_add('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
-git_commit('Testing gitupload via script.', '/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
-create_repo('weiprotein','script_test','/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
-create_origin('weiprotein', 'script_test', '/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
-git_push('/Users/Timothy.Wei-Ming.Koh@ibm.com/Documents/Dev/DataRobot')
+#get the user's pwd
+pwd = os.getcwd()
+
+"""
+git_init(pwd)
+git_add(pwd)
+git_commit('Testing gitupload via script.', pwd)
+create_repo(user_name,'script_test', pwd)
+create_origin(user_name, 'script_test', pwd)
+git_push(pwd)
+"""
+
+@app.route("/",methods=['GET', 'POST'])
+@app.route("/home",methods=['GET', 'POST'])
+def home():
+    #return render_template('home.html')
+    form = InfoForm()
+    if form.validate_on_submit():
+        flash('Repo has been created for %s!'% ({form.username.data}),'success')
+        username = {form.username.data}
+    return render_template('info.html', title='GitHub Info', form=form)
+
+@app.route("/about")
+def about():
+    return render_template('about.html', title='About')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+print username
+
+
+
 
 
 
