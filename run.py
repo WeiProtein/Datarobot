@@ -4,12 +4,10 @@ import os
 import subprocess
 import getpass
 from github import Github
-from flask import Flask, render_template, url_for, flash
-from forms import InfoForm
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = 'gmvjdusampa99vh5'
-
+import bs4 as bs
+import urllib2
+from flask import render_template, url_for, flash, redirect, request
+from create_repo import app
 
 """
 #user input for username and password to user's profile
@@ -79,25 +77,14 @@ create_repo(user_name,'script_test', pwd)
 create_origin(user_name, 'script_test', pwd)
 git_push(pwd)
 """
+sauce = urllib2.urlopen('https://pythonprogramming.net/parsememcparseface/').read()
+soup = bs.BeautifulSoup(sauce, 'lxml')
 
-@app.route("/",methods=['GET', 'POST'])
-@app.route("/home",methods=['GET', 'POST'])
-def home():
-    #return render_template('home.html')
-    form = InfoForm()
-    if form.validate_on_submit():
-        flash('Repo has been created for %s!'% ({form.username.data}),'success')
-        username = {form.username.data}
-    return render_template('info.html', title='GitHub Info', form=form)
-
-@app.route("/about")
-def about():
-    return render_template('about.html', title='About')
+print soup.title
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-print username
 
 
 
