@@ -76,12 +76,12 @@ def home():
         git_commit('Testing gitupload via script.', pwd)
         create_repo(user_name,'script_test', pwd)
         create_origin(user_name, 'script_test', pwd)
-        """
         git_push(pwd)
 
 
+
         ######END GIT REPLICATION HERE######
-        """
+
     return render_template('info.html', title='GitHub Info', form=form)
 
 
