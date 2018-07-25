@@ -7,7 +7,6 @@ from create_repo.models import User
 import os
 import getpass
 import subprocess
-from github import Github
 
 @app.route("/",methods=['GET', 'POST'])
 @app.route("/home",methods=['GET', 'POST'])
