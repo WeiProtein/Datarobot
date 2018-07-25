@@ -35,6 +35,11 @@ def home():
             print out, error
             pipe.wait()
 
+        #cloning original repository
+        def git_clone(repo_dir):
+            cmd = 'git clone https://github.com/weiprotein/self-replicating-repo.git'
+            execute(cmd, repo_dir)
+
         #git init
         def git_init(repo_dir):
             cmd = 'git init'
