@@ -75,8 +75,8 @@ def home():
         git_add(pwd)
         git_commit('Testing gitupload via script.', pwd)
         create_repo(user_name,'script_test', pwd)
-        """
         create_origin(user_name, 'script_test', pwd)
+        """
         git_push(pwd)
 
 
