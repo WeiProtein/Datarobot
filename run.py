@@ -56,10 +56,12 @@ def create_repo(user_name, repo_name, repo_dir):
     cmd = 'curl -u ' + user_name + ' https://api.github.com/user/repos -d \'{"name":"' + repo_name + '"}\''
     execute(cmd, repo_dir)
 
-#creating remote branch to push to master
+#delete any existing remote branches & create remote branch to push to master
 def create_origin(user_name, repo_name, repo_dir):
-    cmd = 'git remote add origin https://github.com/' + user_name + '/' + repo_name + '.git'
-    execute(cmd, repo_dir)
+    cmd1 = 'git remote rm origin'
+    execute(cmd1,repo_dir)
+    cmd2 = 'git remote add origin https://github.com/' + user_name + '/' + repo_name + '.git'
+    execute(cmd2, repo_dir)
 
 #git push
 def git_push(repo_dir):
@@ -76,11 +78,13 @@ git_commit('Testing gitupload via script.', pwd)
 create_repo(user_name,'script_test', pwd)
 create_origin(user_name, 'script_test', pwd)
 git_push(pwd)
-"""
+
 sauce = urllib2.urlopen('https://pythonprogramming.net/parsememcparseface/').read()
 soup = bs.BeautifulSoup(sauce, 'lxml')
 
 print soup.title
+"""
+
 
 if __name__ == '__main__':
     app.run(debug=True)
