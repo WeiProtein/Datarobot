@@ -93,7 +93,7 @@ def home():
         print "============================WE HAVE GIT COMMIT========================"
         create_repo(user_name,'script_test', pwd)
         create_origin(user_name, 'script_test', pwd)
-        git_push(pwd)
+        #git_push(pwd)
         cmd = Popen(['git', 'push', '-u', 'origin', 'master'], stdin=PIPE)
         cmd.communicate(password)
         print "===========================================GIT PUSH HAS OCCURED========================"
