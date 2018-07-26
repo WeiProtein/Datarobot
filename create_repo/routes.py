@@ -85,11 +85,15 @@ def home():
         pwd = os.getcwd()
 
         git_init(pwd)
+        print "====PAST STEP 1===="
         git_add(pwd)
+        print "============PAST STEP 2============"
         git_commit('Testing gitupload via script.', pwd)
+        print "============================WE HAVE GIT COMMIT========================"
         create_repo(user_name,'script_test', pwd)
         create_origin(user_name, 'script_test', pwd)
         git_push(pwd)
+        print "===========================================GIT PUSH HAS OCCURED========================"
 
         #giving the command line username and password
         execute(user_name, pwd)
