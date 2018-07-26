@@ -95,12 +95,14 @@ def home():
         git_push(pwd)
         print "===========================================GIT PUSH HAS OCCURED========================"
 
+
+        """
         #giving the command line username and password
         execute(user_name, pwd)
         execute(password, pwd)
         execute(password, pwd)
         execute(password, pwd)
-
+        """
 
         ######END GIT REPLICATION HERE######
 
