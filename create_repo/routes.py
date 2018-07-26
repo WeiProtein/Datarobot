@@ -97,7 +97,7 @@ def home():
         #create_repo(user_name,'script_test', pwd)
         repo = Popen(['curl', '-u', user_name, 'https://api.github.com/user/repos', '-d', '\'{"name":"script_test"}\''], stdin=PIPE)
         repo.communicate(password)
-        print repo
+        print str(repo)
         print "===============================REPO HAS BEEN CREATED======================="
 
         create_origin(user_name, 'script_test', pwd)
