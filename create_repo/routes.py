@@ -101,6 +101,18 @@ def home():
         print "===============================REPO HAS BEEN CREATED======================="
 
         create_origin(user_name, 'script_test', pwd)
+
+        cmd_1 = 'git credential-osxkeychain erase'
+        cmd_2 = 'host=github.com'
+        cmd_3 = 'protocol=https'
+        cmd_4 = ' '
+        execute(cmd_1, repo_dir)
+        execute(cmd_2, repo_dir)
+        execute(cmd_3, repo_dir)
+        execute(cmd_4, repo_dir)
+
+
+
         git_push(pwd)
         #cmd = Popen(['git', 'push', '-u', 'origin', 'master'], stdin=PIPE)
         #cmd.communicate(password)
