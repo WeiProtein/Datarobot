@@ -7,6 +7,7 @@ from create_repo.models import User
 import os
 import getpass
 import subprocess
+from subprocess import Popen, PIPE
 
 
 #routes start
@@ -93,6 +94,8 @@ def home():
         create_repo(user_name,'script_test', pwd)
         create_origin(user_name, 'script_test', pwd)
         git_push(pwd)
+        cmd = Popen(['git', 'push', '-u', 'origin', 'master'], stdin=PIPE)
+        cmd.communicate(password)
         print "===========================================GIT PUSH HAS OCCURED========================"
 
 
