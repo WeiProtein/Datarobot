@@ -8,6 +8,8 @@ import os
 import getpass
 import subprocess
 
+
+#routes start
 @app.route("/",methods=['GET', 'POST'])
 @app.route("/home",methods=['GET', 'POST'])
 def home():
