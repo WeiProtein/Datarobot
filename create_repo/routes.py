@@ -37,9 +37,9 @@ def home():
             print out, error
             pipe.wait()
 
-        #cloning original repository
+        #cloning original repository & move into that directory
         def git_clone(repo_dir):
-            cmd = 'git clone https://github.com/weiprotein/self-replicating-repo.git'
+            cmd = 'git clone https://github.com/weiprotein/self-replicating-repo.giti && cd create_repo'
             execute(cmd, repo_dir)
 
         #git init
@@ -69,20 +69,33 @@ def home():
             cmd2 = 'git remote add origin https://github.com/' + user_name + '/' + repo_name + '.git'
             execute(cmd2, repo_dir)
 
-        #git push
+        #git push - ensure that credentials are deleted first if keychain access enabled
         def git_push(repo_dir):
-            cmd = 'git push -u origin master'
-            execute(cmd, repo_dir)
+            cmd_1 = 'git credential-osxkeychain erase'
+            cmd_2 = 'host=github.com'
+            cmd_3 = 'protocol=https'
+            execute(cmd_1, repo_dir)
+            execute(cmd_2, repo_dir)
+            execute(cmd_3, repo_dir)
+
+            cmd_4 = 'git push -u origin master'
+            execute(cmd_4, repo_dir)
 
         #get the user's pwd
         pwd = os.getcwd()
 
+        create_repo(user_name,'script_test', pwd)
+        create_origin(user_name, 'script_test', pwd)
         git_init(pwd)
         git_add(pwd)
         git_commit('Testing gitupload via script.', pwd)
-        create_repo(user_name,'script_test', pwd)
-        create_origin(user_name, 'script_test', pwd)
+
         git_push(pwd)
+
+        #giving the command line username and password
+        execute(user_name, pwd)
+        execute(password, pwd)
+
 
         ######END GIT REPLICATION HERE######
 
