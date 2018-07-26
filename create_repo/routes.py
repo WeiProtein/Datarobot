@@ -16,6 +16,7 @@ def home():
     #return render_template('home.html')
     form = InfoForm()
     if form.validate_on_submit():
+        #probably don't need to save to db
         user = User(username=form.username.data, password=form.password.data)
         db.drop_all()
         db.create_all()
