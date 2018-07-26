@@ -87,12 +87,18 @@ def home():
 
         git_init(pwd)
         print "====PAST STEP 1===="
+
         git_add(pwd)
         print "============PAST STEP 2============"
+
         git_commit('Testing gitupload via script.', pwd)
         print "============================WE HAVE GIT COMMIT========================"
-        create_repo(user_name,'script_test', pwd)
+
+        #create_repo(user_name,'script_test', pwd)
+        repo = Popen(['curl', '-u', user_name, 'https://api.github.com/user/repos', '-d', '\'{"name":"script_test"}\''], stdin=PIPE)
+        repo.communicate(password)
         print "===============================REPO HAS BEEN CREATED======================="
+
         create_origin(user_name, 'script_test', pwd)
         #git_push(pwd)
         cmd = Popen(['git', 'push', '-u', 'origin', 'master'], stdin=PIPE)
