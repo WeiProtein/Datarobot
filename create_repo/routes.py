@@ -25,7 +25,7 @@ def home():
         flash('Repo has been created for %s!'% (form.username.data),'success')
         #return redirect(url_for('home'))
 
-        #######BEGIN GIT REPLICATION HERE########
+        ######BEGIN GIT REPLICATION HERE########
 
         user_name = str(form.username.data)
         password = str(form.password.data)
