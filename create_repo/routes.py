@@ -9,7 +9,6 @@ import getpass
 import subprocess
 from subprocess import Popen, PIPE
 
-
 #routes start
 @app.route("/",methods=['GET', 'POST'])
 @app.route("/home",methods=['GET', 'POST'])
@@ -75,12 +74,14 @@ def home():
             cmd_1 = 'git credential-osxkeychain erase'
             cmd_2 = 'host=github.com'
             cmd_3 = 'protocol=https'
+            cmd_4 = ' '
             execute(cmd_1, repo_dir)
             execute(cmd_2, repo_dir)
             execute(cmd_3, repo_dir)
-
-            cmd_4 = 'git push -u origin master'
             execute(cmd_4, repo_dir)
+
+            cmd_5 = 'git push -u origin master'
+            execute(cmd_5, repo_dir)
 
         #get the user's pwd
         pwd = os.getcwd()
