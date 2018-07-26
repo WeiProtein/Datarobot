@@ -91,18 +91,8 @@ def home():
 def about():
     return render_template('about.html', title='About')
 
-"""
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
     if request.method == 'POST':
         result = request.form
         return render_template("result.html",result = result)
-"""
-
-"""
-f = open('TEMP.html', 'w')
-page = urllib2.urlopen('https://pythonprogramming.net/parsememcparseface/')
-pagetext = page.read()
-f.write(pagetext)
-f.close()
-"""
