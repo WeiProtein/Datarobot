@@ -94,15 +94,15 @@ def home():
         git_commit('Testing gitupload via script.', pwd)
         print "============================WE HAVE GIT COMMIT========================"
 
-        #create_repo(user_name,'script_test', pwd)
-        repo = Popen(['curl', '-u', str(user_name), 'https://api.github.com/user/repos', '-d', '\'{"name":"script_test"}\''], stdin=PIPE)
-        repo.communicate(password)
+        create_repo(user_name,'script_test', pwd)
+        #repo = Popen(['curl', '-u', str(user_name), 'https://api.github.com/user/repos', '-d', '\'{"name":"script_test"}\''], stdin=PIPE)
+        #repo.communicate(password)
         print "===============================REPO HAS BEEN CREATED======================="
 
         create_origin(user_name, 'script_test', pwd)
-        #git_push(pwd)
-        cmd = Popen(['git', 'push', '-u', 'origin', 'master'], stdin=PIPE)
-        cmd.communicate(password)
+        git_push(pwd)
+        #cmd = Popen(['git', 'push', '-u', 'origin', 'master'], stdin=PIPE)
+        #cmd.communicate(password)
         print "===========================================GIT PUSH HAS OCCURED========================"
 
 
