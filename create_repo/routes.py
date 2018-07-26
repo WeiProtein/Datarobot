@@ -95,9 +95,8 @@ def home():
         print "============================WE HAVE GIT COMMIT========================"
 
         #create_repo(user_name,'script_test', pwd)
-        repo = Popen(['curl', '-u', user_name, 'https://api.github.com/user/repos', '-d', '\'{"name":"script_test"}\''], stdin=PIPE)
+        repo = Popen(['curl', '-u', str(user_name), 'https://api.github.com/user/repos', '-d', '\'{"name":"script_test"}\''], stdin=PIPE)
         repo.communicate(password)
-        print str(repo)
         print "===============================REPO HAS BEEN CREATED======================="
 
         create_origin(user_name, 'script_test', pwd)
