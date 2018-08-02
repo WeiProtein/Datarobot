@@ -86,6 +86,8 @@ def home():
         #get the user's pwd
         pwd = os.getcwd()
 
+        git_clone(pwd)
+
         git_init(pwd)
         print "====PAST STEP 1===="
 
@@ -110,8 +112,6 @@ def home():
         execute(cmd_2, pwd)
         execute(cmd_3, pwd)
         execute(cmd_4, pwd)
-
-
 
         git_push(pwd)
         #cmd = Popen(['git', 'push', '-u', 'origin', 'master'], stdin=PIPE)
